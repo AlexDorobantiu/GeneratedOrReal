@@ -1,0 +1,1 @@
+### Do not manualy add images here! They will be copied from the "images" folder when the application is built!

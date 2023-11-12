@@ -1,0 +1,11 @@
+# FILEPATH: /c:/Users/Alex/Projects/facultate/GeneratedOrReal/.gitignore
+
+# Python virtual environment
+.venv/
+*.pyc
+
+# Node.js
+npm-debug.log
+
+front/node_modules/
+front/build/
