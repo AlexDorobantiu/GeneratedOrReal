@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LabelStudio from "label-studio";
 import './styles.css';
 
-const backend = "http://localhost";
+const backend = "";
 const nextImageEndpoint = `${backend}/9e0a8953-92d7-428e-97f5-e94f8ef5fef3/next-image`;
 const saveAnswerEndpoint = `${backend}/9e0a8953-92d7-428e-97f5-e94f8ef5fef3/save-answer`;
 const imagesFolder = `${backend}/9e0a8953-92d7-428e-97f5-e94f8ef5fef2/images`;

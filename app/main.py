@@ -7,9 +7,12 @@ from fastapi.responses import PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 origins = [
+    "*",
     "http://localhost",
     "http://localhost:8000",
     "http://localhost:3000",
+    "http://dorobantiu.go.ro",
+    "http://dorobantiu.go.ro:8880",
 ]
 
 app = FastAPI()
