@@ -1,9 +1,26 @@
+import json
+
+from pydantic import BaseModel
 from random import randint
+from typing import List
+
 from app.logic.images import get_image_paths
 
-from app.logic.persistence import Answers, Answer, load_data, save_data
-
 NO_MORE_IMAGES = 'No more images!'
+
+FROM_NAME = "from_name"
+BRUSH_TAGGING = "brush_tagging"
+
+
+class Answer(BaseModel):
+    image_path: str
+    answer: dict
+
+
+class Answers(BaseModel):
+    name: str
+    answers: List[Answer]
+    
 
 def get_next_image(username: str):
     try:
@@ -22,10 +39,37 @@ def get_next_image(username: str):
     return existing_files[randint(0, len(existing_files) - 1)]
 
 
-def persist_answer(username: str, image_path: str, answer: dict):
+def persist_answer(username: str, image_path: str, array_answer: list):
     try:
         answers = load_data(username)
     except FileNotFoundError:
         answers = Answers(name=username, answers=[])
-    answers.answers.append(Answer(image_path=image_path, answer=answer))
-    save_data(answers)
+
+    dict_answer = {}
+    brush = None
+    for option in array_answer:
+        if option[FROM_NAME] == BRUSH_TAGGING:
+            brush = option
+        else:
+            dict_answer[option[FROM_NAME]] = option
+
+    answers.answers.append(Answer(image_path=image_path, answer=dict_answer))
+    with open(_create_filename(answers.name), "w") as f:
+        json.dump(answers.model_dump(), f)
+    if brush:
+         with open(_create_filename(f"{answers.name}_{image_path}_brush"), "w") as f:
+            json.dump(brush, f)
+
+
+def _sanitize_filename(name: str) -> str:
+    return "".join([c for c in name if c.isalnum() or c in {"-", "_", '.', ' '}])
+
+def _create_filename(name: str) -> str:
+    return f"/results/{_sanitize_filename(name)}.json"
+   
+
+def load_data(name: str) -> Answers:
+    filename = _create_filename(name)
+    with open(filename, "r") as f:
+        data_dict = json.load(f)
+    return Answers(**data_dict)

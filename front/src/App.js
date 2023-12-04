@@ -3,9 +3,9 @@ import LabelStudio from "label-studio";
 import './styles.css';
 
 const backend = "http://localhost";
-const nextImageEndpoint = `${backend}/next-image`;
-const saveAnswerEndpoint = `${backend}/save-answer`;
-const imagesFolder = `${backend}/static/images`;
+const nextImageEndpoint = `${backend}/9e0a8953-92d7-428e-97f5-e94f8ef5fef3/next-image`;
+const saveAnswerEndpoint = `${backend}/9e0a8953-92d7-428e-97f5-e94f8ef5fef3/save-answer`;
+const imagesFolder = `${backend}/9e0a8953-92d7-428e-97f5-e94f8ef5fef2/images`;
 
 export default function App() {
   const [currentImage, setCurrentImage] = useState("");
@@ -44,26 +44,32 @@ export default function App() {
 
 
 function LabelStudioTest({ currentImage }) {
-  const [selected, setSelected] = useState(false);
-
   React.useEffect(() => {
     new LabelStudio("label-studio", {
       config: `
       <View>
           <Image name="image1" value="$image"/>
           
-          <Choices name="choice" toName="image1" showInLine="true">
+          <Choices name="choice_real_or_fake" toName="image1" showInLine="true" required="true">
               <Choice value="Real" background="blue"/>
               <Choice value="Fake" background="green" />
           </Choices>
           
-          <Header value="If you think the image is fake press the following button to mark the part of the image that you think is fake:" />
-          <BrushLabels name="tag" toName="image1">
+          <Header value="If you think the image is fake press the following button then mark the part of the image that you think is fake:" />
+          <BrushLabels name="brush_tagging" toName="image1">
               <Label value="Mark" background="rgba(0, 0, 255, 0.5)"/>
           </BrushLabels>
           
           <Header value="Describe why you think it's fake (press enter when done):" />
-          <TextArea name="answer" maxSubmissions="10" editable="true" required="false" />
+          <TextArea name="why_it_is_fake" maxSubmissions="10" editable="true" required="false" />
+
+          <Header value="If you think the image is fake, rate the quality:" />
+          <Choices name="choice_quality" showInLine="true">
+            <Choice value="Almost real" background="blue"/>
+            <Choice value="Very good" background="green" />
+            <Choice value="Good" background="red" />
+            <Choice value="Bad" background="purple" />
+          </Choices>
       </View>
       `,
 

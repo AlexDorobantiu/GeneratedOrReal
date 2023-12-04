@@ -23,10 +23,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+random_guid="9e0a8953-92d7-428e-97f5-e94f8ef5fef2" 
 
-app.mount("/static/", StaticFiles(directory="app/static"), name="static")
+app.mount(f"/{random_guid}/", StaticFiles(directory="app/static"), name="static")
 
-@app.get("/next-image/{username}", response_class=PlainTextResponse)
+@app.get("/9e0a8953-92d7-428e-97f5-e94f8ef5fef3/next-image/{username}", response_class=PlainTextResponse)
 def next_image(username: str):
     return get_next_image(username)
 
@@ -34,10 +35,7 @@ def next_image(username: str):
 class AnwerBody(BaseModel):
     answer: str
 
-@app.post("/save-answer/{username}/{image_path}")
+@app.post("/9e0a8953-92d7-428e-97f5-e94f8ef5fef3/save-answer/{username}/{image_path}")
 def save_answer(username: str, image_path: str, answer_body: AnwerBody):
     array_answer = json.loads(answer_body.answer)
-    dict_answer = {}
-    for i in range(len(array_answer)):
-        dict_answer[str(i)] = array_answer[i]
-    return persist_answer(username, image_path, dict_answer)
+    return persist_answer(username, image_path, array_answer)

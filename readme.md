@@ -19,12 +19,12 @@ First build the image by running this command in the root folder:
 
 ```docker build -t gor:v1 .```
 
-Run the image with the following command:
+Run the image with the following command, replacing the `results_on_host`` folder with a valid path on your machine:
  
-```docker run -d -p 80:80 gor:v1```
+```docker run -d --mount type=bind,source=/results_on_host,target=/results -p 80:80 gor:v1```
 
 
-After that, you can access the application on http://localhost/static/login.html
+After that, you can access the application on http://localhost/9e0a8953-92d7-428e-97f5-e94f8ef5fef2/login.html
 
 ## How to download the responses
 

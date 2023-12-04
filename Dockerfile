@@ -8,7 +8,7 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 COPY ./app /code/app
 
-COPY ./front/build/static /code/app/static
+COPY ./front/build/static /code/app/static/static
 
 COPY ./front/build/index.html /code/app/static/index.html
 
