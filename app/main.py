@@ -15,7 +15,7 @@ origins = [
     "http://dorobantiu.go.ro:8880",
 ]
 
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
 
 app.add_middleware(

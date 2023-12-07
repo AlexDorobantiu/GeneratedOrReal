@@ -42,27 +42,18 @@ export default function App() {
 }
 
 
-
 function LabelStudioTest({ currentImage }) {
   React.useEffect(() => {
     new LabelStudio("label-studio", {
       config: `
       <View>
-          <Image name="image1" value="$image"/>
+          <Image name="image1" value="$image" zoom="true" width="200%" maxWidth="2000px" />
           
           <Choices name="choice_real_or_fake" toName="image1" showInLine="true" required="true">
               <Choice value="Real" background="blue"/>
               <Choice value="Fake" background="green" />
           </Choices>
           
-          <Header value="If you think the image is fake press the following button then mark the part of the image that you think is fake:" />
-          <BrushLabels name="brush_tagging" toName="image1">
-              <Label value="Mark" background="rgba(0, 0, 255, 0.5)"/>
-          </BrushLabels>
-          
-          <Header value="Describe why you think it's fake (press enter when done):" />
-          <TextArea name="why_it_is_fake" maxSubmissions="10" editable="true" required="false" />
-
           <Header value="If you think the image is fake, rate the quality:" />
           <Choices name="choice_quality" showInLine="true">
             <Choice value="Almost real" background="blue"/>
@@ -70,6 +61,14 @@ function LabelStudioTest({ currentImage }) {
             <Choice value="Good" background="red" />
             <Choice value="Bad" background="purple" />
           </Choices>
+          
+          <Header value="If you think the image is fake press the following button then mark the part of the image that you think is fake:" />
+          <BrushLabels name="brush_tagging" toName="image1">
+            <Label value="Mark" background="rgba(0, 0, 255, 0.5)"/>
+          </BrushLabels>
+          
+          <Header value="Additional feedback (press enter when done):" />
+          <TextArea name="additional_feedback" maxSubmissions="10" editable="true" required="false" />
       </View>
       `,
 

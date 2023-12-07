@@ -12,11 +12,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
     <Helmet>
-      <link
-        href="https://unpkg.com/label-studio@latest/build/static/css/main.css"
-        rel="stylesheet"
-      />
-    
+      <link href="https://unpkg.com/label-studio@latest/build/static/css/main.css" rel="stylesheet" />
     </Helmet>
 
     <Store>
