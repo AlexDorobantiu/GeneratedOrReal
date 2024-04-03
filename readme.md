@@ -29,3 +29,14 @@ After that, you can access the application on http://localhost/9e0a8953-92d7-428
 ## How to download the responses
 
 The responses should be available in the folder you specified in the previous step.
+
+## Hot to convert the mask responses
+
+The `results` folder has a python script `convert_markings.py` which converts the mask results from its current folder into the `.png` image format.
+
+To run the script:
+```bash
+python convert_markings.py
+```
+
+The script needs the `pillow` and `numpy` libraries, so make sure you have those installed.
