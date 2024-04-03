@@ -47,7 +47,7 @@ function LabelStudioTest({ currentImage }) {
     new LabelStudio("label-studio", {
       config: `
       <View>
-          <Image name="image1" value="$image" zoom="true" width="200%" maxWidth="2000px" />
+          <Image name="image1" value="$image" zoom="true" width="200%" />
           
           <Choices name="choice_real_or_fake" toName="image1" showInLine="true" required="true">
               <Choice value="Real" background="blue"/>

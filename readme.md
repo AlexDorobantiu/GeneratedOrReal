@@ -28,12 +28,4 @@ After that, you can access the application on http://localhost/9e0a8953-92d7-428
 
 ## How to download the responses
 
-Open the Docker desktop application
-
-Click on the gor container
-
-Click on the Files tab
-
-Navigate to the "code" folder
-
-Download the .json files named after the users
+The responses should be available in the folder you specified in the previous step.
