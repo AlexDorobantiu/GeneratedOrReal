@@ -56,7 +56,7 @@ The script needs the `pillow` and `numpy` libraries, so make sure you have those
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Citation:
-```latex
+```
 Presacan, O., Dorobanţiu, A., Thambawita, V. et al. Merging synthetic and real embryo data for advanced AI predictions. Sci Rep 15, 9805 (2025). https://doi.org/10.1038/s41598-025-94680-0
 ```
 
