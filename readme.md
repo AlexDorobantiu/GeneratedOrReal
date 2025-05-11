@@ -1,4 +1,15 @@
-### Copy all the generated and real images in the "images" folder!
+# Embryo Image Generated or Real
+
+## [Paper](https://www.nature.com/articles/s41598-025-94680-0) | [GitHub](https://github.com/orianapresacan/Embryo) | [GitHub GeneratedOrReal](https://github.com/AlexDorobantiu/GeneratedOrReal)
+
+## Overview
+
+This repository contains code for the web application that allows users to give predictions and feedback on whether the image is generated or real.
+
+
+## How to run the application
+
+Copy all the generated and real images in the "images" folder!
 
 ## To build from scratch
 
@@ -40,3 +51,17 @@ python convert_markings.py
 ```
 
 The script needs the `pillow` and `numpy` libraries, so make sure you have those installed.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## Citation:
+```latex
+Presacan, O., Dorobanţiu, A., Thambawita, V. et al. Merging synthetic and real embryo data for advanced AI predictions. Sci Rep 15, 9805 (2025). https://doi.org/10.1038/s41598-025-94680-0
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## For more details:
+Please contact: alexandru.dorobantiu@ulbsibiu.ro

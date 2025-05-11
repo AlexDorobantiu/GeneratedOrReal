@@ -1,5 +1,3 @@
-# FILEPATH: /c:/Users/Alex/Projects/facultate/GeneratedOrReal/.gitignore
-
 # Python virtual environment
 .venv/
 *.pyc
